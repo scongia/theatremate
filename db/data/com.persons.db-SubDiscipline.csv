@@ -1,0 +1,13 @@
+DICIPLINEID,SUBDICIPLINEID,DESCRIPTION,TITLE
+001,000,,Specialist in addiction medicine
+002,000,,Specialist anaesthetist
+003,000,,Specialist dermatologist
+004,000,,Specialist emergency physician
+004,001,Pediatric emergency medicine,Specialist pediatric emergency physician
+005,000,,Specialist general practitioner
+006,000,,Specialist ophthalmologist
+007,000,,Specialist surgeon
+007,001,Cardio-thoracic surgery,Specialist cardio-thoracic surgeon
+007,002,General surgery,Specialist general surgeon
+007,003,Plastic surgery,Specialist plastic surgeon
+007,004,Vascular surgery,Specialist vascular surgeon
