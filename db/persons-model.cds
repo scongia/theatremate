@@ -53,31 +53,8 @@ entity Admissions: temporal{
 		Procedure		: String(200);
 		Ward			: String(50);
 		Discharged		: Boolean;
-		Patient			: Association to Patient on Patient.PatientID = PatientID @jpa.readOnly;
+		Patient			: Association to Patient on Patient.PatientID = PatientID;
 }
-
-// Views combining BusinessPartner with respecive role..
-entity PractitionerView as SELECT from Practitioner  {
-	key PractitionerID						as PactitionerID ,
-		PracticeNo							as PracticeNo,
-		BusinessPartner.Role.Role.RoleID	as RoleID,
-		BusinessPartner.Title   			as Title,
-		BusinessPartner.FirstName   		as FirstName,
-		BusinessPartner.LastName        	as LastName,
-		SubDiscipline.DiciplineID			as DisceplineID,
-		SubDiscipline.SubDiciplineID		as SubDisceplineID,
-		SubDiscipline.Title					as SpecialistTitle
-} where BusinessPartner.Role.Role.RoleID = '01';	//Practitioner
-
-entity PatientView as SELECT from Patient{
-	key Patient.PatientID					as PatientID,
-		BusinessPartner.Role.Role.RoleID	as RoleID,
-		BusinessPartner.Title   			as Title,
-		BusinessPartner.FirstName   		as FirstName,
-		BusinessPartner.LastName        	as LastName,
-		Admissions.Procedure				as Procedure,
-		Admissions.Ward						as Ward
-} where BusinessPartner.Role.Role.RoleID = '02';		//Patient
 
 //Address
 entity Addresses: temporal {

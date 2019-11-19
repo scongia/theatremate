@@ -8,7 +8,7 @@ annotate srv.Practitioner with {
     @title: 'ID'
     @UI.TextArrangement: #TextOnly;
   PracticeNo
-	@title: 'Practice Number';
+	  @title: 'Practice Number';
   Title
     @title: 'Title';
   FirstName  

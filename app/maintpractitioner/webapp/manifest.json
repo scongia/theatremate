@@ -21,9 +21,6 @@
 			"-version": "1.40.12"
 		  }
 	},
-	"sap.ui": {
-		"technology": "UI5"
-	},
 	"sap.ui5": {
 		"dependencies": {
 			"libs": {
@@ -53,12 +50,12 @@
 		"routing": {
 			"routes": [
 			  {
-				"pattern": "",
+				"pattern": ":?query:",
 				"name": "Practitioner",
 				"target": "PractitionerList"
 			  },
 			  {
-				"pattern": "Practitioner({key})",
+				"pattern": "Practitioner({key}):?query:",
 				"name": "PractitionerDetails",
 				"target": "PractitionerDetails"
 			  }
@@ -97,6 +94,10 @@
 			"compact": true,
 			"cozy": true
 		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"fullWidth": false
 	},
 	"sap.fiori": {
 		"registrationIds": [],
