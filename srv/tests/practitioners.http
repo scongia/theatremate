@@ -1,0 +1,10 @@
+### Read Practitioners
+GET http://localhost:4004/admin/Practitioners
+### Update Practitioner
+PUT http://localhost:4004/admin/Practitioners%28%271000001%27%29
+Content-Type: application/json
+
+{
+  "PactitionerID": "1000001",
+  "FirstName": "Abesh"
+}
