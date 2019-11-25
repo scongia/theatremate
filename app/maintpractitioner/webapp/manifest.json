@@ -55,7 +55,7 @@
 				"target": "PractitionerList"
 			  },
 			  {
-				"pattern": "Practitioner({key}):?query:",
+				"pattern": "Practitioners({key}):?query:",
 				"name": "PractitionerDetails",
 				"target": "PractitionerDetails"
 			  }
@@ -67,9 +67,9 @@
 				"name": "sap.fe.templates.ListReport",
 				"options": {
 				  "settings": {
-					"entitySet": "Practitioner",
+					"entitySet": "Practitioners",
 					"navigation": {
-					  "Books": {
+					  "Practitioners": {
 						"detail": {
 						  "route": "PractitionerDetails"
 						}
@@ -80,11 +80,11 @@
 			  },
 			  "PractitionerDetails": {
 				"type": "Component",
-				"id": "PractitionerDetails",
+				"id": "PractitionerDetailsList",
 				"name": "sap.fe.templates.ObjectPage",
 				"options": {
 				  "settings": {
-					"entitySet": "Practitioner"
+					"entitySet": "Practitioners"
 				  }
 				}
 			  }

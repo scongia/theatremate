@@ -1,7 +1,7 @@
 namespace com.persons.db;
 
 using { managed, temporal } from '@sap/cds/common';
-using common.Managed from './common';
+//using common.Managed from './common';
 using common.EPM from './common';
  
 entity BusinessPartner: managed {
@@ -72,15 +72,15 @@ entity Addresses: temporal {
 
 //Lookup
 entity Discipline {
-    key DiciplineID		: EPM.DisciplineKey;
+    key DisciplineID	: EPM.DisciplineKey;
 		Description		: String(100);
 		SubDisciplines	: Association to many SubDiscipline on SubDisciplines.Discipline=$self;
 };
 
 entity SubDiscipline {
-    key DiciplineID		: EPM.DisciplineKey;
-    key SubDiciplineID	: EPM.DisciplineKey;
-    	Discipline		: Association to Discipline on Discipline.DiciplineID = DiciplineID;
+    key DisciplineID	: EPM.DisciplineKey;
+    key SubDisciplineID	: EPM.DisciplineKey;
+    	Discipline		: Association to Discipline on Discipline.DisciplineID = DisciplineID;
         Description		: String(100);
         Title			: String(150);
 };
