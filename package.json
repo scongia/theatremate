@@ -15,16 +15,15 @@
     "node": "^8.9"
   },
   "scripts": {
-    "setup": "npm install && npm run deploy_db && npm run deploy_srv",
-    "deploy_db": "cds deploy db --to sqlite:db/theatremate.db",
-    "deploy_srv": "cds deploy srv --to sqlite:db/theatremate.db",
+    "setup": "npm install && npm run deploy",
+    "deploy": "cds deploy db --to sqlite:db/theatremate.db",
     "start": "cds run"
   },
   "cds": {
     "requires": {
       "db": {
         "kind": "sqlite",
-        "model": "srv",
+        "model": "db",
         "credentials": {
           "database": "db/theatremate.db"
         }
