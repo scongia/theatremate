@@ -1,12 +1,11 @@
 namespace com.persons.db;
 
-using { managed, temporal } from '@sap/cds/common';
-//using common.Managed from './common';
-using common.EPM from './common';
+using { managed, temporal, cuid } from '@sap/cds/common';
+
+type BusinessKey : String(50);
  
-entity BusinessPartner: managed {
-    key  PartnerID		: EPM.BusinessKey;
-         PhoneNumber	: EPM.PhoneT	@title: "Phone Number";
+entity BusinessPartner: cuid, managed {
+         PhoneNumber	: String(20)	@title: "Phone Number";
          FirstName		: String(200)	@title: "First Name";
          LastName		: String(200)	@title: "Last Name";
          Title			: String(4)		@title: "Title";
@@ -29,40 +28,35 @@ entity Role {
 };
 
 //[01] - Medical Practitioner
-entity Practitioner {
-	key PractitionerID	: EPM.BusinessKey;
+entity Practitioner : managed {
+    key BusinessPartner	: Association to BusinessPartner;
 		PracticeNo		: String(50);
-		BusinessPartner	: Association to BusinessPartner on BusinessPartner.PartnerID = PractitionerID @jpa.readOnly;
 		SubDiscipline	: Association to SubDiscipline;
 }
 
 //[02] - Patient
-entity Patient {
-	key PatientID		: EPM.BusinessKey;
+entity Patient : managed {
+    key	BusinessPartner	: Association to BusinessPartner;
 		MedicalAid		: String(50);
 		MedicalAidNo	: String(10);
-		BusinessPartner	: Association to BusinessPartner on BusinessPartner.PartnerID = PatientID @jpa.readOnly;
 		Admissions		: Association to many Admissions on Admissions.Patient=$self;
-		
 }
 
 //Admission
-entity Admissions: temporal{
-	Key AdmissionID 	: EPM.BusinessKey;
-	Key	PatientID		: EPM.BusinessKey;
+entity Admissions: cuid, temporal{
 		Procedure		: String(200);
 		Ward			: String(50);
 		Discharged		: Boolean;
-		Patient			: Association to Patient on Patient.PatientID = PatientID;
+		Patient			: Association to Patient;
 }
 
 //Address
 entity Addresses: temporal {
-    key AddressID		: EPM.BusinessKey;
-        City			: EPM.SString;
-        PostalCode		: EPM.BusinessKey;
-        Street			: EPM.MString;
-        Building		: EPM.BusinessKey;
+    key BusinessPartner	: Association to BusinessPartner;
+        City			: String(50);
+        PostalCode		: String(50);
+        Street			: String(100);
+        Building		: String(100);
         Country			: String(5);
         Region			: String(4);
         AddressType		: String(2);  
@@ -72,14 +66,14 @@ entity Addresses: temporal {
 
 //Lookup
 entity Discipline {
-    key DisciplineID	: EPM.DisciplineKey;
+    key DisciplineID	: String(4);
 		Description		: String(100);
 		SubDisciplines	: Association to many SubDiscipline on SubDisciplines.Discipline=$self;
 };
 
 entity SubDiscipline {
-    key DisciplineID	: EPM.DisciplineKey;
-    key SubDisciplineID	: EPM.DisciplineKey;
+    key DisciplineID	: String(4);
+    key SubDisciplineID	: String(4);
     	Discipline		: Association to Discipline on Discipline.DisciplineID = DisciplineID;
         Description		: String(100);
         Title			: String(150);
