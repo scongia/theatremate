@@ -6,7 +6,6 @@ Sample application to test CRUD operations on a data model using BusinessPartner
 
 * get [_Node.js_](https://nodejs.org/en/) v8 or higher
 * get [_sqlite_](https://www.sqlite.org/download.html) (Windows only; pre-installed on Mac/Linux)
-* _npm set @sap:registry_ to the latest _nexus snapshots_:
 
 ```sh
 npm set @sap:registry=https://npm.sap.com
