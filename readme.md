@@ -25,6 +25,7 @@ npm run start
 ```
 
 ## Removing SQLite DB
+Should you need to remove the database for a full rest.
 ```sh
-pm run remove_db
+npm run remove_db
 ```
