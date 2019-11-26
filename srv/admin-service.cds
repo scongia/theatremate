@@ -5,8 +5,8 @@ service AdminService{
   // @read @update 	entity Practitioner		as projection on person.PractitionerView;
   // @read @update 	entity Patient			as projection on person.PatientView;
 
-  @read @update entity Practitioners as SELECT from db.Practitioner  {
-    key PractitionerID						      as PactitionerID ,
+  entity Practitioners as SELECT from db.Practitioner  {
+    key BusinessPartner.ID					    as ID,
       PracticeNo							          as PracticeNo,
       BusinessPartner.Role.Role.RoleID	as RoleID,
       BusinessPartner.Title   			    as Title,
@@ -19,8 +19,8 @@ service AdminService{
       SubDiscipline.Title					      as SubDisciplineTxt
   } where BusinessPartner.Role.Role.RoleID = '01';	  //Practitioner
 
-  @readonly entity Patients as SELECT from db.Patient{
-    key Patient.PatientID					      as PatientID,
+  entity Patients as SELECT from db.Patient{
+    key BusinessPartner.ID					    as ID,
       BusinessPartner.Role.Role.RoleID	as RoleID,
       BusinessPartner.Title   			    as Title,
       BusinessPartner.FirstName   		  as FirstName,
@@ -30,7 +30,7 @@ service AdminService{
   } where BusinessPartner.Role.Role.RoleID = '02';		//Patient
 
 
-  @readonly entity BusinessPartner		as projection on db.BusinessPartner;
-  @readonly entity Discipline		      as projection on db.Discipline;
-  @readonly entity SubDiscipline	    as projection on db.SubDiscipline;
+  //@readonly entity BusinessPartner		as projection on db.BusinessPartner;
+  //@readonly entity Discipline		      as projection on db.Discipline;
+  //@readonly entity SubDiscipline	    as projection on db.SubDiscipline;
 } 

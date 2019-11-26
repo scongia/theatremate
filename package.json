@@ -15,19 +15,14 @@
     "node": "^8.9"
   },
   "scripts": {
+    "cleanup": "rm -fr node_modules && remdb",
+    "remove_db": "rm -fr db/theatremate.db",
     "setup": "npm install && npm run deploy",
-    "deploy": "cds deploy db --to sqlite:db/theatremate.db",
+    "deploy": "cds deploy srv --to sqlite:db/theatremate.db",
     "start": "cds run"
   },
   "cds": {
     "requires": {
-      "db": {
-        "kind": "sqlite",
-        "model": "db",
-        "credentials": {
-          "database": "db/theatremate.db"
-        }
-      },
       "srv": {
         "kind": "sqlite",
         "model": "srv",
