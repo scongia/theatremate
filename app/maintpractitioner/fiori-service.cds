@@ -4,16 +4,16 @@ using AdminService as srv from '../../srv/admin-service';
 // Practitioner
 // ---------------------------------------------------------------------------------------------------------------------
 annotate srv.Practitioners with {
-  PactitionerID   @title: 'ID'          @UI.TextArrangement: #TextOnly;
+  ID              @title: 'ID'          @UI.TextArrangement: #TextOnly;
   PracticeNo      @title: 'Practice Number';
   Title           @title: 'Title';
   FirstName       @title: 'First Name'  @Common.FieldControl: #Mandatory;
   LastName        @title: 'Last Name'   @Common.FieldControl: #Mandatory;
   Email           @title: 'Email'       @Common.FieldControl: #Mandatory; 
 	//	BusinessPartner.Role.Role.RoleID	as RoleID,
-	Discipline		@title: 'Discipline';
+	Discipline		  @title: 'Discipline';
   DisciplineTxt		@title: 'Discipline Text';
-  SubDiscipline @title: 'Sub Discipline';
+  SubDiscipline   @title: 'Sub Discipline';
 	SubDisciplineTxt @title: 'Sub Discipline Text';
 };
  
@@ -23,7 +23,7 @@ annotate srv.Practitioners with {
 annotate srv.Practitioners with @(
     UI:{
         //SelectionFields: [ PactitionerID, FirstName, LastName, DisciplineID, SubDisciplineID ],
-        SelectionFields: [ PactitionerID, FirstName, LastName, Discipline ],
+        SelectionFields: [ ID, FirstName, LastName, Discipline ],
         LineItem: [
             {$Type: 'UI.DataField', Value: Title,     Label: 'Title'},
             {$Type: 'UI.DataField', Value: LastName,  Label : 'Last Name'},
