@@ -1,4 +1,4 @@
-# Doctor / Patinent appointment app
+# Doctor / Patient appointment app
 
 Sample application to test CRUD operations on a data model using BusinessPartner / Role concept.
 
