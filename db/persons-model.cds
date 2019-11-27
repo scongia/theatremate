@@ -5,13 +5,13 @@ using { managed, temporal, cuid } from '@sap/cds/common';
 type BusinessKey : String(50);
  
 entity BusinessPartner: cuid, managed {
-         PhoneNumber	: String(20)	@title: "Phone Number";
-         FirstName		: String(200)	@title: "First Name";
-         LastName		: String(200)	@title: "Last Name";
-         Title			: String(4)		@title: "Title";
-         DoB			: Date			@title: "Date of Birth";
-         IDNum			: String(20)	@title: "ID Number";
-         Email			: String(100)	@title: "Email";
+         PhoneNumber	: String(20);
+         FirstName		: String(200);
+         LastName		: String(200);
+         Title			: String(4);
+         DoB			: Date;
+         IDNum			: String(20);
+         Email			: String(100);
          Addresses		: Association to Addresses;
          Role			: Association to many PartnerRole on Role.BusinessPartner=$self;
 };

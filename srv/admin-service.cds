@@ -2,9 +2,7 @@ using com.persons.db as db from '../db/persons-model';
 
  @(path:'/admin')
 service AdminService{
-  // @read @update 	entity Practitioner		as projection on person.PractitionerView;
-  // @read @update 	entity Patient			as projection on person.PatientView;
-
+ 
   entity Practitioners as SELECT from db.Practitioner  {
     key BusinessPartner.ID					    as ID,
       PracticeNo							          as PracticeNo,
@@ -30,7 +28,13 @@ service AdminService{
   } where BusinessPartner.Role.Role.RoleID = '02';		//Patient
 
 
-  //@readonly entity BusinessPartner		as projection on db.BusinessPartner;
-  //@readonly entity Discipline		      as projection on db.Discipline;
-  //@readonly entity SubDiscipline	    as projection on db.SubDiscipline;
+  // @readonly entity BusinessPartner		as projection on db.BusinessPartner;
+  // @readonly entity PartnerRole		as projection on db.PartnerRole;
+  // @readonly entity Role		as projection on db.Role;
+  // @readonly entity Addresses		as projection on db.Addresses;
+  // @readonly entity Practitioner		as projection on db.Practitioner;
+  // @readonly entity Patient		as projection on db.Patient;
+  // @readonly entity Admissions		as projection on db.Admissions;
+  // @readonly entity Discipline		      as projection on db.Discipline;
+  // @readonly entity SubDiscipline	    as projection on db.SubDiscipline;
 } 

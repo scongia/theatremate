@@ -2,7 +2,6 @@ POST http://localhost:4004/admin/Patients
 Content-Type: application/json
 
 {
-"PatientID": "1000014",
 "RoleID": "02",
 "Title": "Mr.",
 "FirstName": "Gregor",
