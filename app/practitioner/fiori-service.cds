@@ -36,35 +36,35 @@ annotate srv.Practitioners with @(
 {
 	Discipline @ValueList.entity:'Disciplines';
   //SubDisciplineID @ValueList.entity:'SubDiscipline';
-}
-;
+};
 
 // ---------------------------------------------------------------------------
 // Object Page
 // ---------------------------------------------------------------------------
-annotate srv.Practitioners with @(UI :{
-  HeaderInfo: {
-      Title: { Value: LastName },
-      Description: { Value: SubDisciplineTxt },
-      TypeName: 'Practitioner',
-      TypeNamePlural: 'Practitioners'
-  },
-  Facets: [{
-      $Type:'UI.CollectionFacet',
-      Facets: [
-        { $Type: 'UI.ReferenceFacet', Label: 'General Info',  Target: '@UI.FieldGroup#GeneralInfo' }
-      ],
-      Label:'General Details',
+annotate srv.Practitioners with @(
+  UI :{
+    HeaderInfo: {
+        Title: { Value: LastName },
+        Description: { Value: SubDisciplineTxt },
+        TypeName: 'Practitioner',
+        TypeNamePlural: 'Practitioners'
+    },
+    Facets: [{
+        $Type:'UI.CollectionFacet',
+        Facets: [
+          { $Type: 'UI.ReferenceFacet', Label: 'General Info',  Target: '@UI.FieldGroup#GeneralInfo' }
+        ],
+        Label:'General Details',
+      }
+    ],
+    FieldGroup #GeneralInfo: {
+      Label: 'General Info',
+      Data: [
+        {$Type: 'UI.DataField', Value: Title},
+        {$Type: 'UI.DataField', Value: FirstName},
+        {$Type: 'UI.DataField', Value: LastName},
+        {$Type: 'UI.DataField', Value: PracticeNo}
+      ]
     }
-  ],
-  FieldGroup #GeneralInfo: {
-    Label: 'General Info',
-    Data: [
-      {$Type: 'UI.DataField', Value: Title},
-      {$Type: 'UI.DataField', Value: FirstName},
-      {$Type: 'UI.DataField', Value: LastName},
-      {$Type: 'UI.DataField', Value: PracticeNo}
-    ]
-  }
   }
 );

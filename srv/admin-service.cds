@@ -18,7 +18,7 @@ service AdminService  @(path:'/admin') {
   //     Practitioners.SubDiscipline.Title					    as SubDisciplineTxt
   // } where BusinessPartner.Role.Role.RoleID = '01';	  //Practitioner
   
-  entity Practitioners as SELECT from db.Practitioners{
+  @update entity Practitioners as SELECT from db.Practitioners{
     key BusinessPartner.ID					                as ID,
       BusinessPartner.Role.Role.RoleID	            as RoleID,
       BusinessPartner.Title   			                as Title,
