@@ -4,7 +4,7 @@ using { managed, temporal, cuid } from '@sap/cds/common';
 
 type BusinessKey : String(50);
  
-entity BusinessPartner: cuid, managed {
+entity BusinessPartners: cuid, managed {
          PhoneNumber	: String(20);
          FirstName		: String(200);
          LastName		: String(200);
@@ -17,26 +17,26 @@ entity BusinessPartner: cuid, managed {
 };
 
 entity PartnerRole {
-	key BusinessPartner	: Association to BusinessPartner;
-	key Role			: Association to Role;
+	key BusinessPartner	: Association to BusinessPartners;
+	key Role			: Association to Roles;
 };
 
-entity Role {
+entity Roles {
 	key RoleID			: String(5);
 		RoleName		: String(100);
 		BusinessPartner : Association to many PartnerRole on BusinessPartner.Role=$self;
 };
 
 //[01] - Medical Practitioner
-entity Practitioner : managed {
-    key BusinessPartner	: Association to BusinessPartner;
+entity Practitioners : managed {
+    key BusinessPartner	: Association to BusinessPartners;
 		PracticeNo		: String(50);
-		SubDiscipline	: Association to SubDiscipline;
+        SubDiscipline	: Association to SubDisciplines;
 }
 
 //[02] - Patient
-entity Patient : managed {
-    key	BusinessPartner	: Association to BusinessPartner;
+entity Patients : managed {
+    key	BusinessPartner	: Association to BusinessPartners;
 		MedicalAid		: String(50);
 		MedicalAidNo	: String(10);
 		Admissions		: Association to many Admissions on Admissions.Patient=$self;
@@ -44,15 +44,16 @@ entity Patient : managed {
 
 //Admission
 entity Admissions: cuid, temporal{
+        Patient			: Association to Patients;
+        Practitioner	: Association to Practitioners;
 		Procedure		: String(200);
 		Ward			: String(50);
 		Discharged		: Boolean;
-		Patient			: Association to Patient;
 }
 
 //Address
 entity Addresses: temporal {
-    key BusinessPartner	: Association to BusinessPartner;
+    key BusinessPartner	: Association to BusinessPartners;
         City			: String(50);
         PostalCode		: String(50);
         Street			: String(100);
@@ -65,16 +66,16 @@ entity Addresses: temporal {
 };
 
 //Lookup
-entity Discipline {
+entity Disciplines {
     key DisciplineID	: String(4);
 		Description		: String(100);
-		SubDisciplines	: Association to many SubDiscipline on SubDisciplines.Discipline=$self;
+		SubDisciplines	: Association to many SubDisciplines on SubDisciplines.Discipline=$self;
 };
 
-entity SubDiscipline {
+entity SubDisciplines {
     key DisciplineID	: String(4);
     key SubDisciplineID	: String(4);
-    	Discipline		: Association to Discipline on Discipline.DisciplineID = DisciplineID;
+    	Discipline		: Association to Disciplines on Discipline.DisciplineID = DisciplineID;
         Description		: String(100);
         Title			: String(150);
 };

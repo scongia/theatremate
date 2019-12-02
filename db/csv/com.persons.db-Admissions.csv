@@ -1,0 +1,2 @@
+Patient_BusinessPartner_ID,Practitioner_BusinessPartner_ID,Procedure,Ward,validFrom,validTo,Discharged
+64e718c9-ff99-47f1-8ca3-950c850777d4,7e2f2640-6866-4dcf-8f4d-3027aa831cad,Skin Graft,High Care Ward,21/03/2019,24/03/2019,true

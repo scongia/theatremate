@@ -1,0 +1,8 @@
+POST http://localhost:4004/admin/BusinessPartner
+Content-Type: application/json
+
+{
+"Title": "Mr.",
+"FirstName": "Gregor",
+"LastName": "Wolf"
+}

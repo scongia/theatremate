@@ -5,6 +5,6 @@ PUT http://localhost:4004/admin/Practitioners%28%277e2f2640-6866-4dcf-8f4d-3027a
 Content-Type: application/json
 
 {
-  "PactitionerID": "7e2f2640-6866-4dcf-8f4d-3027aa831cad",
+  "ID": "7e2f2640-6866-4dcf-8f4d-3027aa831cad",
   "FirstName": "Abesh"
 }

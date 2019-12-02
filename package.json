@@ -29,6 +29,13 @@
         "credentials": {
           "database": "db/theatremate.db"
         }
+      },
+      "db": {
+        "kind": "sqlite",
+        "model": "srv",
+        "credentials": {
+          "database": "db/theatremate.db"
+        }
       }
     }
   }
