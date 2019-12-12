@@ -18,8 +18,13 @@ service AdminService  @(path:'/admin') {
   //     Practitioners.SubDiscipline.Title					    as SubDisciplineTxt
   // } where BusinessPartner.Role.Role.RoleID = '01';	  //Practitioner
   
-  @update entity Practitioners as SELECT from db.Practitioners{
-    key BusinessPartner.ID					                as ID,
+  entity Practitioners @(
+        Capabilities: {
+            InsertRestrictions: {Insertable: true},
+            DeleteRestrictions: {Deletable: true}
+        }
+    ) as SELECT from db.Practitioners{
+    key BusinessPartner.ID					                as BusinessPartner_ID,
       BusinessPartner.Role.Role.RoleID	            as RoleID,
       BusinessPartner.Title   			                as Title,
       BusinessPartner.FirstName   		              as FirstName,

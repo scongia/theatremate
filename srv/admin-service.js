@@ -1,8 +1,8 @@
 const cds = require('@sap/cds')
 module.exports = (srv) => {
 
-  // srv.before ('POST', 'Practitioners', each => {
-  //   console.log("------->" , each)
-  // })
+  srv.on ('PUT', 'AdminService.Practitioners', each => {
+    console.log("------->" , each)
+  })
 
 }
