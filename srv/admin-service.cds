@@ -48,7 +48,7 @@ service AdminService  @(path:'/admin') {
   // } where BusinessPartner.Role.Role.RoleID = '02';		//Patient
 
 
-  //entity BusinessPartner		as projection on db.BusinessPartners;
+  entity BusinessPartner		as projection on db.BusinessPartners;
   // @readonly entity PartnerRole		as projection on db.PartnerRole;
   // entity Roles		as projection on db.Roles;
   // @readonly entity Addresses		as projection on db.Addresses;

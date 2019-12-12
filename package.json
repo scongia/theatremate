@@ -9,7 +9,7 @@
     "express": "^4.17.1"
   },
   "devDependencies": {
-    "sqlite3": "^4.0.4"
+    "sqlite3": "^4.1.1"
   },
   "engines": {
     "node": "^8.9"
